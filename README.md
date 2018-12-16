@@ -2,6 +2,7 @@ FEAPDES
 ====================
 
 Finite Element Analysis Programs Data Extraction Scripts.
+This is a set of bash/AWK scripts for extracting data from FEM result files.
 
 Motivation
 ----------
