@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# Assembles the all-in-one template script by combining source.sh & script.sh
+# Assembles the all-in-one script by combining source.sh $1
+# The assembled scritp is write to $2 
 
 # A better class of script...
 set -o errexit          # Exit on most errors (see the manual)
@@ -12,13 +13,8 @@ set -o pipefail         # Use last non-zero exit code in a pipeline
 # Main control flow
 function main() {
     # shellcheck source=source.sh
-    source "$(dirname "${BASH_SOURCE[0]}")/source.sh"
-
-    trap "script_trap_err" ERR
-    trap "script_trap_exit" EXIT
-
     script_init "$@"
-    build_template
+    build_template $1 $2
 }
 
 
@@ -38,7 +34,8 @@ function build_template() {
 # your script to be entirely self-contained then this should be what you want!"
 
     source_file="$script_dir/source.sh"
-    script_file="$script_dir/script.sh"
+    script_file="$script_dir/$1"
+    out_file=$2
 
     script_options="$(head -n 15 "$script_file" | tail -n 6)"
     source_data="$(tail -n +10 "$source_file" | head -n -1)"
@@ -50,17 +47,25 @@ function build_template() {
         printf '%s\n\n' "$script_options"
         printf '%s\n\n' "$source_data"
         printf '%s\n' "$script_data"
-    } > template.sh
+    } > ${out_file}
 
     tmp_file="$(mktemp /tmp/template.XXXXXX)"
     sed -e '/# shellcheck source=source\.sh/{N;N;d;}' \
         -e 's/BASH_SOURCE\[1\]/BASH_SOURCE[0]/' \
-        template.sh > "$tmp_file"
-    mv "$tmp_file" template.sh
-    chmod +x template.sh
+        ${out_file} > "$tmp_file"
+    mv "$tmp_file" ${out_file}
+    chmod +x ${out_file} 
 }
 
 # Template, assemble!
-main
+source "$(dirname "${BASH_SOURCE[0]}")/source.sh"
+
+trap "script_trap_err" ERR
+trap "script_trap_exit" EXIT
+
+if [ $# -ne 2 ]; then
+    script_exit "Expected two arguments" 77
+    fi
+main $1 $2
 
 # vim: syntax=sh cc=80 tw=79 ts=4 sw=4 sts=4 et sr
