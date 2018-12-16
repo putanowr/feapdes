@@ -1,1 +1,0 @@
-ala mak kota
