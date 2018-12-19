@@ -1,0 +1,216 @@
+ FEAP * * 4-Element Patch Test                                                  
+
+     Solution date: Tue Dec 11 13:16:30 2018
+
+              Release 8.5.2j      
+              25 April 2018       
+
+     Input Data Filename: Isingle                                                                                                                         
+
+     Number of Nodal Points  - - - - - - :        4
+     Number of Elements  - - - - - - - - :        1
+
+     Spatial Dimension of Mesh - - - - - :        2
+     Degrees-of-Freedom/Node (Maximum) - :        2
+     Equations/Element       (Maximum) - :        0
+     Number Element Nodes    (Maximum) - :        4
+
+     Number of Material Sets - - - - - - :        1
+     Number Parameters/Set   (Program) - :      300
+     Number Parameters/Set   (Users  ) - :      150
+
+ FEAP * * 4-Element Patch Test                                                 
+
+   M a t e r i a l    P r o p e r t i e s
+
+     Material Number   1: Element Type: SOLId:                           
+     Degree of Freedom Assignments    Local    Global
+                                     Number    Number
+                                        1         1
+                                        2         2
+
+     T w o   D i m e n s i o n a l   S o l i d   E l e m e n t
+
+     M e c h a n i c a l   P r o p e r t i e s
+
+          Plane Stress  Analysis
+
+          Modulus E        1.00000E+03
+          Poisson ratio    0.25000
+
+
+     G a u s s               Q u a d r a t u r e
+          Quadrature: Arrays  2
+          Quadrature: Output  2
+
+          Thickness        1.00000E+00
+          Density          0.00000E+00
+
+          1-Gravity Load   0.00000E+00
+          2-Gravity Load   0.00000E+00
+          3-Gravity Load   0.00000E+00
+
+     C o n s t i t u t i v e    S t a r t
+
+          Start state  : Elastic
+
+     E l e m e n t    M o d e l
+
+          Formulation  : Small Deformation.
+          Element type : Displacement
+          Plot Output  : On
+
+     W a r n i n g s   &   E r r o r s
+          Material density is zero.
+
+ FEAP * * 4-Element Patch Test                                                 
+
+     Nodal Coordinates   
+
+      Node    1 Coord    2 Coord
+         1  0.000E+00  0.000E+00
+         2  1.000E+00  0.000E+00
+         3  1.000E+00  1.000E+00
+         4  0.000E+00  1.000E+00
+
+          Part(  1) = PART0001       
+
+ FEAP * * 4-Element Patch Test                                                 
+
+     E l e m e n t   C o n n e c t i o n s 
+
+    Elmt Mat Reg  1 Node  2 Node  3 Node  4 Node
+       1   1   0       1       2       3       4
+
+          Part(  1): Elm start =       1
+                     Elm last  =       1
+                     Nodes/el. =       4
+
+     E l e m e n t   S i z e   V a l u e s
+          h-minimum =  1.0000E+00
+          h-maximum =  1.4142E+00
+
+ FEAP * * 4-Element Patch Test                                                 
+
+  E d g e    N o d a l    B.C.
+
+    node  1-B.C.  2-B.C.
+       1       1       1
+       2       0       1
+       4       1       0
+
+ FEAP * * 4-Element Patch Test                                                 
+
+   C o o r d i n a t e    S u r f a c e   L o a d s
+   x_1 coord.   y_1 coord.   x_2 coord.   y_2 coord.   x_3 coord.   y_3 coord.
+   1.0000E+00   1.0000E+00   0.0000E+00   1.0000E+00   5.0000E-01   1.0000E+00
+   p_1 press.                p_2 press.                p_3 press.
+  -1.0000E+03               -1.0000E+03               -1.0000E+03
+
+       N o d a l    F o r c e s
+
+         Node      1-Force      2-Force
+
+            3   0.0000E+00  -5.0000E+02
+            4   0.0000E+00  -5.0000E+02
+
+     P a r t i t i o n   1
+
+     E q u a t i o n / P r o b l e m   S u m m a r y:
+
+       Mesh dimension  (ndm) =         2 :  Number nodes     =               4
+       Number dof/node (ndf) =         2 :  Number elements  =               1
+       Element eqs.   (nadd) =         0 :  Number materials =               1
+       Number rigid bodies   =         0 :  Number equations =               4
+       Number joints         =         0 :  Number tang terms=               6
+       Transient integrator  = Static    :  Average col. ht. =               2
+
+
+  ---------------------------- END OF MESH INPUTS ----------------------------
+
+
+ FEAP * * 4-Element Patch Test                                                 
+
+     Solution Commands       Variable 1  Variable 2  Variable 3
+       CHECk                 0.0000E+00  0.0000E+00  0.0000E+00
+       FORM      residual    0.0000E+00  0.0000E+00  0.0000E+00
+       TANGent               0.0000E+00  0.0000E+00  0.0000E+00
+       SOLVe                 0.0000E+00  0.0000E+00  0.0000E+00
+       DISPlacem ALL         0.0000E+00  0.0000E+00  0.0000E+00
+       STREss    ALL         0.0000E+00  0.0000E+00  0.0000E+00
+       PLOT      STRE        2.0000E+00  0.0000E+00  0.0000E+00
+       PLOT      REACtions   0.0000E+00  0.0000E+00  0.0000E+00
+ *Command   1 * chec                v:   0.00       0.00       0.00    
+                                                           t=     0.04     0.00
+     Restrained Degree-of-Freedom Check
+               DOF   Fixed
+          ----------------
+                 1       2
+                 2       2
+          ----------------
+                On       4 Nodes
+
+ *Command   2 * form residual       v:   0.00       0.00       0.00    
+                                                           t=     0.04     0.00
+   Residual norm =     7.0710678E+02    1.0000000E+00
+ *Command   3 * tang                v:   0.00       0.00       0.00    
+                                                           t=     0.04     0.00
+                                                           t=     0.04     0.00
+ Condition check: D-max 0.4889E+03; D-min 0.4148E+03; Ratio 0.1179E+01
+ Maximum no. diagonal digits lost:  1
+   End Triangular Decomposition                            t=     0.04     0.00
+ *Command   4 * solv                v:   0.00       0.00       0.00    
+                                                           t=     0.04     0.00
+   Energy convergence test
+    Initial   =    1.000000000000000E+03 Current   =    1.000000000000000E+03
+    Relative  =    1.000000000000000E+00 Tolerance =    1.000000000000000E-16
+ *Command   5 * disp ALL            v:   0.00       0.00       0.00    
+                                                           t=     0.04     0.00
+
+ FEAP * * 4-Element Patch Test                                                 
+
+  N o d a l   D i s p l a c e m e n t s     Time       0.00000E+00
+                                            Prop. Ld.  1.00000E+00
+
+    Node     1 Coord     2 Coord     1 Displ     2 Displ
+       1  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+       2  1.0000E+00  0.0000E+00  2.5000E-01  0.0000E+00
+       3  1.0000E+00  1.0000E+00  2.5000E-01 -1.0000E+00
+       4  0.0000E+00  1.0000E+00  0.0000E+00 -1.0000E+00
+ *Command   6 * stre ALL            v:   0.00       0.00       0.00    
+                                                           t=     0.04     0.00
+ FEAP * * 4-Element Patch Test                                                   
+
+     Element Stresses and Strains
+
+     Elmt Mat    1-Coord    2-Coord
+                1-Stress   2-Stress      Angle   1-Strain   2-Strain      Angle
+               11-Stress  22-Stress  33-Stress  12-Stress
+               11-Strain  22-Strain  33-Strain  12-Strain
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        1   1  2.113E-01  2.113E-01
+               0.000E+00 -1.000E+03       0.00  2.500E-01 -1.000E+00       0.00
+              -1.421E-14 -1.000E+03  0.000E+00  0.000E+00
+               2.500E-01 -1.000E+00  2.500E-01  0.000E+00
+        1   1  7.887E-01  2.113E-01
+               0.000E+00 -1.000E+03      -0.00  2.500E-01 -1.000E+00      -0.00
+              -1.421E-14 -1.000E+03  0.000E+00 -2.220E-14
+               2.500E-01 -1.000E+00  2.500E-01 -5.551E-17
+        1   1  7.887E-01  7.887E-01
+              -1.137E-13 -1.000E+03       0.00  2.500E-01 -1.000E+00       0.00
+              -7.105E-14 -1.000E+03  0.000E+00  0.000E+00
+               2.500E-01 -1.000E+00  2.500E-01  0.000E+00
+        1   1  2.113E-01  7.887E-01
+              -1.137E-13 -1.000E+03       0.00  2.500E-01 -1.000E+00       0.00
+              -7.105E-14 -1.000E+03  0.000E+00  0.000E+00
+               2.500E-01 -1.000E+00  2.500E-01  0.000E+00
+ *Command   7 * plot STRE           v:   2.00       0.00       0.00    
+                                                           t=     0.04     0.00
+    Minimum is  -1.10E+03 Maximum is  -8.90E+02
+   ------ Contour Values for Plot ------
+     -1.082400E+03  -1.064900E+03  -1.047400E+03  -1.029900E+03  -1.012400E+03
+     -9.949000E+02  -9.774000E+02  -9.599000E+02  -9.424000E+02  -9.249000E+02
+     -9.074000E+02
+ *Command   8 * plot REACtions      v:   0.00       0.00       0.00    
+                                                           t=     0.05     0.00
+ *End of Solution Execution*                               t=     0.05     0.00
